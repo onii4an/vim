@@ -47,6 +47,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rhysd/vim-crystal'
 Plug 'mhinz/vim-startify'
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 " Vim
@@ -139,6 +142,10 @@ let g:ctrlp_map = '<A-S-o>'
 let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|tmp|coverage|log)$'
 let g:ctrlp_match_window = 'top,order:ttb,min:1,max:10,results:10'
 
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+
 nnoremap <silent> <S-tab> :CtrlPBuffer<CR>
 
 " Commentary
@@ -179,3 +186,22 @@ vmap <silent> <expr> p <sid>Repl()
 
 "Open current directory
 map <S-w> :e %:h<CR>
+
+nnoremap <Left> :echo "No left for you!"<CR>
+vnoremap <Left> :<C-u>echo "No left for you!"<CR>
+inoremap <Left> <C-o>:echo "No left for you!"<CR>
+nnoremap <Right> :echo "No right for you!"<CR>
+vnoremap <Right> :<C-u>echo "No right for you!"<CR>
+inoremap <Right> <C-o>:echo "No right for you!"<CR>
+nnoremap <Up> :echo "No up for you!"<CR>
+vnoremap <Up> :<C-u>echo "No up for you!"<CR>
+inoremap <Up> <C-o>:echo "No up for you!"<CR>
+nnoremap <Down> :echo "No down for you!"<CR>
+vnoremap <Down> :<C-u>echo "No down for you!"<CR>
+inoremap <Down> <C-o>:echo "No down for you!"<CR>
+nnoremap <PageDown> :echo "No pagedown for you!"<CR>
+vnoremap <PageDown> :<C-u>echo "No pagedown for you!"<CR>
+inoremap <PageDown> <C-o>:echo "No pagedown for you!"<CR>
+nnoremap <PageUp> :echo "No pageup for you!"<CR>
+vnoremap <PageUp> :<C-u>echo "No pageup for you!"<CR>
+inoremap <PageUp> <C-o>:echo "No pageup for you!"<CR>
