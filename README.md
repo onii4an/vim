@@ -9,4 +9,3 @@
 
 Open vim and run next command: `PlugInstall`
 
-> [![endorse](http://api.coderwall.com/galulex/endorsecount.png)](http://coderwall.com/galulex)
