@@ -49,7 +49,7 @@ Plug 'mhinz/vim-startify'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plugin 'bbatsov/rubocop'
+Plug 'bbatsov/rubocop'
 
 call plug#end()
 
@@ -188,6 +188,9 @@ vmap <silent> <expr> p <sid>Repl()
 "Open current directory
 map <S-w> :e %:h<CR>
 
+" My configs
+
+" Disabling arrows
 nnoremap <Left> :echo "No left for you!"<CR>
 vnoremap <Left> :<C-u>echo "No left for you!"<CR>
 nnoremap <Right> :echo "No right for you!"<CR>
@@ -200,3 +203,22 @@ nnoremap <PageDown> :echo "No pagedown for you!"<CR>
 vnoremap <PageDown> :<C-u>echo "No pagedown for you!"<CR>
 nnoremap <PageUp> :echo "No pageup for you!"<CR>
 vnoremap <PageUp> :<C-u>echo "No pageup for you!"<CR>
+
+" moving arround autocomplete
+inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+
+" Colorscheme
+colorscheme atomified
+
+" Startify each new window
+if has('nvim')
+  autocmd TabNewEntered * Startify
+else
+  autocmd VimEnter * let t:startify_new_tab = 1
+  autocmd BufEnter *
+        \ if !exists('t:startify_new_tab') && empty(expand('%')) |
+        \   let t:startify_new_tab = 1 |
+        \   Startify |
+        \ endif
+endif
